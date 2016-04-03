@@ -6,7 +6,8 @@ from flask import render_template
 from flask import redirect, url_for
 from flask import request
 
-app = Flask(__name__)
+application = Flask(__name__)
+app = application
 
 
 @app.route('/')
