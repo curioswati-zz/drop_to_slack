@@ -1,5 +1,5 @@
 import json
-import requests
+import urllib2
 
 from flask import Flask
 from flask import render_template
@@ -31,8 +31,9 @@ def send_message():
         # specific for slackbot
         webhook_url = "https://hooks.slack.com/services/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"
 
-        req = requests.post(webhook_url, headers=headers, data=data)
-        print req
+        req = urllib2.Request(webhook_url, headers=headers, data=data)
+        resp = urllib2.urlopen(req)
+        print resp.read()
 
         return redirect(url_for('index'))
 
