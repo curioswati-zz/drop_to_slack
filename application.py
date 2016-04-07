@@ -1,4 +1,5 @@
 import json
+import os
 import urllib2
 
 from flask import Flask
@@ -29,7 +30,7 @@ def send_message():
         })
 
         # specific for slackbot
-        webhook_url = "https://hooks.slack.com/services/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"
+        webhook_url = os.env['WEBHOOK_URL']
 
         req = urllib2.Request(webhook_url, headers=headers, data=data)
         resp = urllib2.urlopen(req)
